@@ -4,7 +4,7 @@
   "description": "Oxford Study Application",
   "main": "server.js",
   "scripts": {
-    "start": "electron . --enable-logging",
+    "start": "node server",
     "clean": "rm -rf ./dist",
     "clean:osx": "rm -rf ./release-builds/osx",
     "clean:win": "rm -rf ./release-builds/win",
@@ -20,6 +20,9 @@
     "start",
     "tutorial"
   ],
+  "engines": {
+    "node": "8.4.0"
+  },
   "author": "Senthil Kumar",
   "devDependencies": {
     "electron": "^1.8.1",
