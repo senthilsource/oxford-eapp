@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ebook</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="text/javascript" src="js/jquery.min.1.7.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+  <script type="text/javascript" src="js/jquery.stickynote.js"></script>
+  <script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
+  <script type="text/javascript" src="js/hash.js"></script>
+  <script type="text/javascript" src="js/turn.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/bookmark.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery.bxslider.js"></script> -->
+  <script type="text/javascript" src="js/jquery.mThumbnailScroller.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/jquery.highlight-5.js"></script>
+  <script type="text/javascript" src="js/jQuery.print.min.js"></script>
+  <script type="text/javascript" src="js/StickyNotes.js"></script>
+  <script type="text/javascript" src="js/popover.js"></script>
+  <script type="text/javascript" src="js/axios.min.js"></script>
+  <script type="text/javascript" src="js/print.min.js"></script>
+  <script type="text/javascript" src="js/recorder.js"></script>
+  <script type="text/javascript" src="js/customRecord.js"></script>
+  <script type="text/javascript" src="js/annotator-full.js"></script>
+  <script type="text/javascript" src="js/jquery.fullscreen.js"></script>
+
+
+  <!-- <script type="text/javascript" src="js/jquery.ui.widget.1.10.3.min.js"></script> -->
+  <script type="text/javascript" src="js/jquery.ui.mouse.1.10.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.ui.draggable.1.10.3.min.js"></script>
+  <script type="text/javascript" src="js/wColorPicker.min.js"></script>
+  <script type="text/javascript" src="js/wPaint.utils.js"></script>
+  <script type="text/javascript" src="js/wPaint.js"></script>
+  <script type="text/javascript" src="js/wPaint.menu.main.js"></script>
+  <script type="text/javascript" src="js/wPaint.menu.text.js"></script>
+  <script type="text/javascript" src="js/wPaint.menu.main.shapes.js"></script>
+  <script type="text/javascript" src="js/wPaint.menu.main.file.js"></script>
+
+  <!-- wColorPicker -->
+  <link rel="Stylesheet" href="css/wColorPicker.min.css" />
+  <link rel="Stylesheet" href="css/wPaint.css" />
+  <link rel="stylesheet" href="css/magazine.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="css/main.css" /> -->
+  <link rel="stylesheet" type="text/css" href="css/print.min.css">
+  <!-- <link rel="stylesheet" href="css/jquery.bxslider.css" /> -->
+  <link rel="stylesheet" href="css/jquery.mThumbnailScroller.css" />
+  <link rel="stylesheet" href="css/jquery.stickynote.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <link rel="stylesheet" href="css/pages/base.min.css" />
+  <link rel="stylesheet" href="css/pages/fancy.min.css" />
+  <link rel="stylesheet" href="css/pages/main.css" />
+  <link rel="stylesheet" href="css/annotator.css" />
+
+  <style>
+    #thumbnails.content {
+      overflow: auto;
+      position: relative;
+      padding-top: 30px;
+      background-color: #333;
+      margin: 20px;
+      width: 160px;
+      height: auto;
+      float: left;
+    }
+
+    #thumbnails.content li {
+      margin: 4px;
+      overflow: hidden;
+    }
+
+    #thumbnails.content li img {
+      border: 1px solid #ddd;
+      /* Gray border */
+      border-radius: 4px;
+      /* Rounded border */
+      padding: 5px;
+      /* Some padding */
+      width: 100px;
+      /* Set a small width */
+    }
+
+    #thumbnails.content li img:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    }
+
+    #thumbnails.content li a {
+      display: inline-block;
+      border: 7px solid rgba(226, 158, 158, 0.1);
+    }
+
+    #thumbnails.content.light,
+    #thumbnails.content.light .mTSButton {
+      background-color: #9ac31c;
+    }
+
+    #thumbnails.content.light li a {
+      border: 7px solid rgba(255, 255, 255, .4);
+    }
+
+    #thumbnails.content.light ul {
+      overflow-y: scroll;
+      height: 600px;
+    }
+
+    #thumbnails {
+      width: 120px;
+      height: 620px;
+    }
+
+    #thumbnails {
+      padding: 55px 10px;
+    }
+
+    #thumbnails.content.light ul::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #9ac31c;
+    }
+
+    #thumbnails.content.light ul::-webkit-scrollbar {
+      width: 12px;
+      background-color: #9ac31c;
+    }
+
+    #thumbnails.content.light ul::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: #D62929;
+    }
+
+    .clicked {
+      background-color: rgb(211, 211, 25);
+    }
+
+    input.upload-btn {
+      margin: 0;
+      background: green;
+      position: absolute;
+      top: 40%;
+      left: 5%;
+    }
+
+    #record {
+      height: 7vh;
+    }
+
+    #record.recording {
+      background: red;
+      background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%, lightgrey 100%, #7db9e8 100%);
+      background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%, lightgrey 100%, #7db9e8 100%);
+      background: radial-gradient(center, ellipse cover, #ff0000 0%, lightgrey 75%, lightgrey 100%, #7db9e8 100%);
+    }
+
+    #save,
+    #save img {
+      height: 7vh;
+    }
+
+    #save {
+      opacity: 0.25;
+    }
+
+    #save[download] {
+      opacity: 1;
+    }
+
+    #viz {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    @media (orientation: landscape) {
+      body {
+        flex-direction: row;
+      }
+      #controls {
+        flex-direction: column;
+        height: 100%;
+        width: 10%;
+      }
+      #viz {
+        height: 100%;
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- Header -->
+
+  <div class="book-container container-fluid">
+    <div class="container-fluid header navbar-fixed-top">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <ul class="header-menu">
+          <li>
+            <a tooltip="Bookmark" onclick="loadBookMark();" data-toggle="modal" data-target="#bookmarkModal" flow="down" href="javascript:;">
+              <img src="ic_18.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a tooltip="Save Annotations" flow="down" href="/download" >
+              <img src="ic_19.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a tooltip="0pen Annotations" flow="down" data-toggle="modal" data-target="#fileUploadModal" href="javascript:;">
+              <img src="ic_20.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a tooltip="Record" flow="down" data-toggle="modal" data-target="#myModal3" href="javascript:;">
+              <img src="ic_21.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a tooltip="Print" flow="down" data-toggle="modal" data-target="#myModal1" href="javascript:;">
+              <img src="ic_22.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a id="openNotes" tooltip="Notes" flow="down" href="javascript:;">
+              <img src="ic_23.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a tooltip="Help" flow="down" data-toggle="modal" data-target="#myModal4" href="javascript:;">
+              <img src="ic_24.png" alt="">
+            </a>
+          </li>
+          <li style="border: none; background: none !important">
+            <span class="search-sugg">
+              <input type="Helps" id="searchTxt" placeholder="Search here" />
+              <span id="search-result-cd" style="display:none">
+                <span class="title">Search Results</span>
+                <span class="close rounded black" onclick='closeSearch("search-result-cd")'></span>
+                <ul id="searchResults" class="term-list"></ul>
+              </span>
+              <a id="search-btn">
+                <img src="search_ic@1x.png" alt="">
+              </a>
+            </span>
+          </li>
+
+          <a id="maxWindow">
+            <img id="fullscreenimg" width="20" src="full.png" alt="">
+          </a>
+        </ul>
+      </div>
+    </div>
+
+    <!--Print Modal -->
+    <div class="modal fade" id="myModal1" role="dialog">
+      <div class="modal-dialog">
+
+        <div class="print-modal-content">
+          <div class="print-modal-body">
+            <form name="myForm" action="js" onsubmit="return validateForm()" method="get">
+              <p>From:&nbsp;&nbsp;
+                <input name="page_nos" id="startPage" type="text" pattern="[0-9]" /> To:&nbsp;&nbsp;
+                <input id="endPage" name="page_nos" type="text" pattern="[0-9]" />
+              </p>
+              <p>
+                <input id="print" type="button" name="Print" value="Print" data-dismiss="modal" data-toggle="modal" data-target="#myModal2"
+                />
+                <input type="button" name="Cancel" value="Cancel" onclick="closepopup('myModal1')" />
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal2" role="dialog">
+      <div class="modal-dialog">
+        <div class="print-modal-content">
+          <h4 class="modal-title">Preparing print please wait....</h4>
+          <form role="form" action='js' method="post">
+            <div class="print-modal-body">
+              <!-- <p class="modal-second-cd">Page 35 of 45</p> -->
+              <input type="submit" name="Cancel" data-dismiss="modal" value="Cancel" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Record Modal -->
+    <div class="modal fade" id="myModal3" role="dialog">
+      <div class="modal-dialog">
+        <div class="print-modal-content">
+          <h4 class="modal-title modal-recorder">Audio Recorder
+            <button type="button" data-dismiss="modal">&times;</button>
+          </h4>
+          <form role="form" action='js' method="post">
+            <div class="print-modal-body record-body">
+              <a>
+                <img src="record.png" id="record" onclick="toggleRecording(this);">
+              </a>
+              <a id="save">
+                <img src="save.png">
+              </a>
+              <div id="playDiv" style="display:none">
+                <a id="playicn">
+                  <img src="play.png" />
+                </a>
+              </div>
+              <div id="pauseDiv" style="display:none">
+                <a id="pauseicn">
+                  <img src="pause.png" />
+                </a>
+              </div>
+              <p class="first-record-status">Start Record</p>
+              <p class="second-record-status">Please make sure to connect the microphone to your system for recording.</p>
+              <div id="viz" style="display:none">
+                <canvas id="analyser"></canvas>
+                <canvas id="wavedisplay" width="50" height="50"></canvas>
+              </div>
+              <audio id="playbackvoice" type="audio/ogg" style="display:none" controls></audio>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bookmarkModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" onclick='closepopup("modal")'>&times;</button>
+            <h4 class="modal-title">
+              <img src="book.png" alt="">Your Bookmark</h4>
+          </div>
+          <form id="bookmark-form" name="form1">
+            <div class="modal-body">
+              <p>Name:
+                <input name="txtValue" type="text" />
+              </p>
+              <input type="button" name="add" value="Add" onclick="addValue();" />
+              <input type="button" name="Remove" value="Delete" id="deleteBookMark" onclick="deleteValue();" />
+            </div>
+            <div class="modal-footer">
+              <select name="lstValue" width="100" multiple></select>
+            </div>
+            </from>
+            <input type="button" name="Go" value="Go" id="goBookMark" />
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="fileUploadModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" onclick='closepopup("modal")'>&times;</button>
+            <h4 class="modal-title">
+              Open Annotation</h4>
+          </div>
+          <br>
+          <div>
+            <input id="upload-input" type="file" name="upload" style="display:none" accept="json">
+            <input class="upload-btn" value="Open Annotation" type="button" />
+            <br>
+          </div>
+          <br>
+          <br>
+          <p>
+            <center>
+              <label id="uploadMessage" />
+            </center>
+            <br>
+          </p>
+          <div>
+            <p> 1. Click above button to upload annotation file. </p>
+            <p> 2. Close the window once it is upload successfully to view annotations.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Paint -->
+    <div class="dropdown tools" id="paint">
+      <button class="dropbtn">
+        <img class="hover-icon" src="ic_7.png">
+      </button>
+      <!-- <div class="dropdown-content">
+        <a href="#">
+          <img src="ic_1.png" alt="">
+          <span>Spotlight</span>
+        </a>
+        <a>         
+          <img src="ic_2.png" alt="">
+          <span>Pencil</span>
+        
+        </a>
+        <a href="#">
+          <img src="ic_3.png" alt="">
+          <span>Pen Highlightner</span>
+        </a>
+        <a href="#">
+          <img src="ic_4.png" alt="">
+          <span>Hide & Reveal</span>
+        </a>
+        <a href="#">
+          <img src="ic_5.png" alt="">
+          <span>Eraser</span>
+        </a>
+        <a href="#">
+          <img src="ic_6.png" alt="">
+          <span>Normal Cursor</span>
+        </a>
+      </div> -->
+    </div>
+
+    <ul class="pager">
+      <li class="previous">
+        <a id="previous-button" tooltip="Previous Page" flow="right" href="javascript:;">
+          <img src="Asset_8.png" alt="">
+        </a>
+      </li>
+      <li class="next">
+        <a id="next-button" tooltip="Next Page" flow="left" href="javascript:;">
+          <img src="Asset_7.png" alt="">
+        </a>
+      </li>
+    </ul>
+
+
+    <!-- Modal -->
+    <div class="modal left fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <button type="button" class="close" data-dismiss="modal">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close Modal</span>
+      </button>
+      <div class="modal-dialog help-popup" role="document">
+        <ul class="help-ul-1 list-unstyled ">
+          <a>
+            <li class="dropdown">1
+              <div class="dropdown-content">Bookmark
+                <div class="inner-content">Click to add a bookmark on the current page</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">2
+              <div class="dropdown-content"> Save Annotations
+                <div class="inner-content">Click to view saved annotation</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">3
+              <div class="dropdown-content"> Open Annotations
+                <div class="inner-content">Click to open annotation</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">4
+              <div class="dropdown-content">Record
+                <div class="inner-content">Click to record and play audio</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">5
+              <div class="dropdown-content">Print
+                <div class="inner-content">Click to print the current page</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">6
+              <div class="dropdown-content">Notes
+                <div class="inner-content">Click to take notes</div>
+              </div>
+            </li>
+            <a>
+              <li class="dropdown">7
+                <div class="dropdown-content">Help
+                  <div class="inner-content">Click this button to view the help page</div>
+                </div>
+              </li>
+            </a>
+            <a>
+              <li class="dropdown">8
+                <div class="dropdown-content">Search
+                  <div class="inner-content">Enter a keyword to search content</div>
+                </div>
+              </li>
+            </a>
+        </ul>
+        <ul class="help-ul-2 list-unstyled ">
+          <a>
+            <li class="dropdown">9
+              <div class="dropdown-content dd-content-3">Table of Content
+                <div class="inner-content">Click to view the table of content</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">10
+              <div class="dropdown-content">Go to Page no
+                <div class="inner-content">Enter the page no.you want to view</div>
+              </div>
+            </li>
+          </a>
+        </ul>
+        <ul class="help-ul-3 list-unstyled ">
+          <a>
+            <li class="dropdown">11
+              <div class="dropdown-content">Single Page View
+                <div class="inner-content">Click for a single page view</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">12
+              <div class="dropdown-content">Thumbnail View
+                <div class="inner-content">Click to view thumbnails</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">13
+              <div class="dropdown-content">Resources
+                <div class="inner-content">Click to view all the available resources</div>
+              </div>
+            </li>
+          </a>
+          <a>
+            <li class="dropdown">14
+              <div class="dropdown-content">Zoom in
+                <div class="inner-content"> Click to zoom in</div>
+              </div>
+            </li>
+            <a>
+              <li class="dropdown">15
+                <div class="dropdown-content">Current page Display
+                  <div class="inner-content">Click to current page display</div>
+                </div>
+              </li>
+            </a>
+            <a>
+              <li class="dropdown">16
+                <div class="dropdown-content">Browse for files
+                  <div class="inner-content">Click to open files from your system</div>
+                </div>
+              </li>
+            </a>
+            <a>
+              <li class="dropdown">17
+                <div class="dropdown-content">Open dictionary
+                  <div class="inner-content"> Click to open dictionary</div>
+                </div>
+              </li>
+            </a>
+            <a>
+              <li class="dropdown">18
+                <div class="dropdown-content">Go Online
+                  <div class="inner-content">Click to goto the OUP website</div>
+                </div>
+              </li>
+            </a>
+            <a>
+              <li class="dropdown">19
+                <div class="dropdown-content dd-content-1">Test generator
+                  <div class="inner-content">Click to run the test</div>
+                </div>
+              </li>
+            </a>
+            <a>
+              <li class="dropdown">20
+                <div class="dropdown-content dd-content-2">Volume control
+                  <div class="inner-content">Click to adjust the volume</div>
+                </div>
+              </li>
+            </a>
+        </ul>
+        <ul class="help-ul-4 list-unstyled ">
+          <a>
+            <li class="dropdown">21
+              <div class="dropdown-content">Next page
+                <div class="inner-content">Click to goto the next page</div>
+              </div>
+            </li>
+          </a>
+        </ul>
+        <ul class="help-ul-5 list-unstyled ">
+          <a>
+            <li class="dropdown">22
+              <div class="dropdown-content">Previous page
+                <div class="inner-content">Click to goto the previous page</div>
+              </div>
+            </li>
+          </a>
+        </ul>
+        <ul class="help-ul-6 list-unstyled">
+          <a>
+            <li class=" dropdown">23
+              <div class="dropdown-content">Tools
+                <div class="inner-content">
+                  <p align="middle">Click to select from the following tools:</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:#658112;">
+                      <b>&#8226;</b>&nbsp;</span>Pencil</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:#658112;">
+                      <b>&#8226;</b>&nbsp;</span>Pen Highlighter</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:#658112;">
+                      <b>&#8226;</b>&nbsp;</span>Hide and Reveal</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:#658112;">
+                      <b>&#8226;</b>&nbsp;</span>Eraser</p>
+                  <p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:#658112;">
+                      <b>&#8226;</b>&nbsp;</span>Spotlight</p>
+                </div>
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+      <!-- modal-dialog -->
+    </div>
+    <!-- modal -->
+
+    <!-- Body -->
+    <!-- Thumbnails -->
+    <div id="thumbnails" style="display: none;">
+      <ul class="bxslider1">
+      </ul>
+    </div>
+
+    <div id="wPaint" style="position:absolute; z-index: 9999; top:5%; left:37%;width:800px; height:400px;  
+    margin:70px auto 20px auto; display:none"></div>
+
+    <!-- View Port -->
+    <!-- <div id="content" onmouseup="highlightSelection('yellow')"> -->
+    <div id="content">
+      <div id="canvas">
+        <div class="magazine-viewport">
+          <div class="container">
+            <div id="loader" style="display:none"></div>
+            <div class="magazine" id="booksection">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <DIV id='print-iframe' name='print-iframe' src="/print/print.pdf" style="display:none"></iframe> -->
+    <!-- Footer -->
+    <div class="container-fluid footer navbar-fixed-bottom">
+      <div class="row">
+        <div class="col-sm-5 cd-footer-ul">
+          <ul class="footer-ul-first">
+            <!-- Contents button -->
+            <!-- <a data-toggle="popover" title='Table of Contents' data-placement="top"><span>Contents</button></a> -->
+            <li class="pop-content">
+              <a class="trigger" href="javascript:;">
+                <span>Contents</span>
+              </a>
+            </li>
+            <!-- Go button -->
+            <li class="page-go ">
+              <input type="text" id="pageToGo" placeholder="">
+              <a href="javascript:;">
+                <span id="basic-addon1" onclick="loadSelectedPage();" style="color: #fff;font-weight: 900;">Go</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="page-wrapper"> </div>
+
+          <div class="modal-wrapper">
+
+            <div class="modal-content-table">
+              <div class="head"> Table of Contents
+                <a class="btn-close trigger" href="javascript:;">
+                  <span class="close rounded black"></span>
+                </a>
+              </div>
+
+              <div class="content">
+                <div class="panel-group" id="accordion">
+                  <li>
+                    <b>Sessions - Class 5 Team 2</b>
+                  </li>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse12" aria-expanded="false">
+                        English
+                        <span class="glyphicon glyphicon-triangle-bottom minus pull-left"></span>
+                        <span class="glyphicon glyphicon-triangle-right plus pull-left"></span>
+                      </h4>
+                    </div>
+                    <div id="collapse12" class="panel-collapse collapse" aria-expanded="false">
+                      <span title='Down the Garden Path' onclick="loadSelectedPage(11)">1. Down the Garden Path</span>
+                      </br>
+                      <span title='The Little Red Hen' onclick="loadSelectedPage(17)">2. The Little Red Hen</span>
+                      </br>
+                      <span title='Barry, the Bat' onclick="loadSelectedPage(23)">3. Barry, the Bat</span>
+                      </br>
+                      <span title='The Apple Tree' onclick="loadSelectedPage(29)">4. The Apple Tree</span>
+                      </br>
+                      <span title='The Elves and the Shoemaker' onclick="loadSelectedPage(36)">5. The Elves and the Shoemaker</span>
+                      </br>
+                      <span title='Listening Texts' onclick="loadSelectedPage(43)">6. Listening Texts</span>
+                      </br>
+                    </div>
+                  </div>
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse13" aria-expanded="false">
+                        Mathematics
+                        <span class="glyphicon glyphicon-triangle-bottom minus pull-left"></span>
+                        <span class="glyphicon glyphicon-triangle-right plus pull-left"></span>
+                      </h4>
+                    </div>
+                    <div id="collapse13" class="collapse" aria-expanded="false">
+                      <span title='Comparison' onclick="loadSelectedPage(46)">1. Comparison</span>
+                      </br>
+                      <span title='Numbers and Number Names from 11 to 20' onclick="loadSelectedPage(54)">2. Numbers and Number Names from 11 to 20</span>
+                      </br>
+                      <span title='Order of Numbers' onclick="loadSelectedPage(57)">3. Order of Numbers</span>
+                      </br>
+                      <span title='Addition up to 10' onclick="loadSelectedPage(61)">4. Addition up to 10</span>
+                      </br>
+                      <span title='Numbers from 51 to 70' onclick="loadSelectedPage(71)">5. Numbers from 51 to 70</span>
+                      </br>
+                      <span title='Ordinal Numbers' onclick="loadSelectedPage(78)">6. Ordinal Numbers</span>
+                      </br>
+                    </div>
+                  </div>
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse14" aria-expanded="false">
+                        Environmental Studies
+                        <span class="glyphicon glyphicon-triangle-bottom minus pull-left"></span>
+                        <span class="glyphicon glyphicon-triangle-right plus pull-left"></span>
+                      </h4>
+                    </div>
+                    <div id="collapse14" class="collapse" aria-expanded="false">
+                      <span title='Me and My Family' onclick="loadSelectedPage(82)">1. Me and My Family</span>
+                      </br>
+                      <span title='I Love My Body' onclick="loadSelectedPage(88)">2. I Love My Body</span>
+                      </br>
+                      <span title='The Green World Around Me' onclick="loadSelectedPage(90)">3. The Green World Around Me</span>
+                      </br>
+                      <span title='I Know My Colours' onclick="loadSelectedPage(106)">4. I Know My Colours</span>
+                      </br>
+                      <span title='I Love to Dress Up' onclick="loadSelectedPage(109)">5. I Love to Dress Up</span>
+                      </br>
+                      <span title='My Daily Routine' onclick="loadSelectedPage(113)">6. My Daily Routine</span>
+                      </br>
+                      <span title='I Love My Food' onclick="loadSelectedPage(116)">7. I Love My Food</span>
+                      </br>
+                      <span title='Celebrations' onclick="loadSelectedPage(121)">8. Celebrations</span>
+                      </br>
+                      <span title='Games We Play' onclick="loadSelectedPage(127)">9. Games We Play</span>
+                      </br>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-7 cd-footer-ul">
+          <ul class="footer-menu">
+            <li>
+              <a id="pageView" tooltip="Single Page View" flow="up" href="javascript:;">
+                <img id="pageViewIcn" src="/ic_8.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a id="thumbnail_menu" tooltip="Thumbnail View" flow="up" href="javascript:;">
+                <img src="/ic_9.png" alt="">
+              </a>
+            </li>
+            <li class="dropup">
+              <a tooltip="Resource" flow="up" type="button" data-toggle="dropdown" href="javascript:;">
+                <img src='/ic_10.png' alt=""> </a>
+              <ul class="dropdown-menu">
+                <a data-toggle="modal" data-target="#myModal5">
+                  <li>Lesson Plans and Answer key to Coursebook </li>
+                </a>
+                <a data-toggle="modal" data-target="#myModal6">
+                  <li class="rs-mid">Additional Worksheets</li>
+                </a>
+                <a data-toggle="modal" data-target="#myModal7">
+                  <li>Answer key to Additional Worksheets</li>
+                </a>
+                <a data-toggle="modal" data-target="#myModal8">
+                  <li>Season Challenge to Answer key</li>
+                </a>
+                <a data-toggle="modal" data-target="#myModal9">
+                  <li class="rs-mid">Let's Watch Animations</li>
+                </a>
+                <a data-toggle="modal" data-target="#myModal10">
+                  <li class="rs-mid">Slideshows</li>
+                </a>
+                <a data-toggle="modal" data-target="#myModal11">
+                  <li class="rs-mid">Multimedia</li>
+                </a>
+              </ul>
+            </li>
+            <li>
+              <a id="zoomIn" tooltip="Zoom In" flow="up" href="javascript:;">
+                <img src="/ic_11.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a id="zoomOut" tooltip="Current Page Display" flow="up" href="javascript:;">
+                <img src="/ic_12.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a tooltip="Open File" flow="up" href="javascript:;">
+                <img src="/ic_13.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a tooltip="Open Dictionary" flow="up" target="_blank" href="http://www.oxfordlearnersdictionaries.com/">
+                <img src="/ic_14.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a tooltip="Go Online" flow="up" target="_blank" href="https://india.oup.com/">
+                <img src="/ic_15.png" alt="">
+              </a>
+            </li>
+            <li>
+              <a tooltip="Test Generator" flow="up" target="_blank" href="https://india.oup.com/">
+                <img src="/ic_16.png" alt="">
+              </a>
+            </li>
+            <li id="mute-audio" class="mute">
+              <img id="vol_icon" alt="">
+              <span class="volume">
+                <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <audio id="flipsound" src="page-flip-02.wav" type="audio/ogg" style="display:none" controls>
+    </div>
+  </audio>
+  </div>
+  </div>
+  <div id="idContainer"></div>
+
+
+  <!-- resource -->
+  <div class="modal fade" id="myModal5" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lesson Plans and Answer Keys</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on a Lesson Plan to view.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">English lesson plans and answer keys</th>
+                </tr>
+                <tr>
+                  <th scope="row">Mathematics lesson plans and answer keys</th>
+                </tr>
+                <tr>
+                  <th scope="row">Science lesson plans and answer keys</th>
+                </tr>
+                <tr>
+                  <th scope="row">Social Studies lesson plans and answer keys</th>
+                </tr>
+                <tr>
+                  <th scope="row">General knowledge answer keys</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal6" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Additional Worksheets</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on the page number to view.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Chapter Name</th>
+                  <th scope="col">Page No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">English Worksheets</th>
+                  <th scope="row">43</th>
+                </tr>
+                <tr>
+                  <th scope="row">Mathematics Worksheets</th>
+                  <th scope="row">93</th>
+                </tr>
+                <tr>
+                  <th scope="row">Science Worksheets</th>
+                  <th scope="row">112</th>
+                </tr>
+                <tr>
+                  <th scope="row">Social Studies Worksheets</th>
+                  <th scope="row">162</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal7" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Answer Keys</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on the Answer Key to view.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Answer key to English Worksheets</th>
+                </tr>
+                <tr>
+                  <th scope="row">Answer key to Mathematics Worksheets</th>
+                </tr>
+                <tr>
+                  <th scope="row">Answer key to Science Worksheets</th>
+                </tr>
+                <tr>
+                  <th scope="row">Answer key to Social Studies Worksheets</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal8" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Seasons Challange</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on the Answer Key to view.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Seasons Challange</th>
+                </tr>
+                <tr>
+                  <th scope="row">Seasons Challange answer key for English</th>
+                </tr>
+                <tr>
+                  <th scope="row">Seasons Challange answer key for Mathematics</th>
+                </tr>
+                <tr>
+                  <th scope="row">Seasons Challange answer key for Science</th>
+                </tr>
+                <tr>
+                  <th scope="row">Seasons Challange answer key for Social Studies</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal9" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Let's Watch Animation</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on the page number to view the page.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Chapter Name</th>
+                  <th scope="col">Page No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Selfish Giant</th>
+                  <th scope="row">43</th>
+                </tr>
+                <tr>
+                  <th scope="row">Mr Nobody</th>
+                  <th scope="row">93</th>
+                </tr>
+                <tr>
+                  <th scope="row">Bills</th>
+                  <th scope="row">12</th>
+                </tr>
+                <tr>
+                  <th scope="row">Decimals</th>
+                  <th scope="row">2</th>
+                </tr>
+                <tr>
+                  <th scope="row">Times</th>
+                  <th scope="row">12</th>
+                </tr>
+                <tr>
+                  <th scope="row">Percentage and Average</th>
+                  <th scope="row">62</th>
+                </tr>
+                <tr>
+                  <th scope="row">It couldn't be done</th>
+                  <th scope="row">162</th>
+                </tr>
+                <tr>
+                  <th scope="row">The Art of Packing</th>
+                  <th scope="row">152</th>
+                </tr>
+                <tr>
+                  <th scope="row">Times</th>
+                  <th scope="row">12</th>
+                </tr>
+                <tr>
+                  <th scope="row">Percentage and Average</th>
+                  <th scope="row">62</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal10" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Slideshows</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on the page number to view the slideshow resource.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Chapter Name</th>
+                  <th scope="col">Page No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Safety and First Aid</th>
+                  <th scope="row">43</th>
+                </tr>
+                <tr>
+                  <th scope="row">Soil Erosion and Soil Conservation</th>
+                  <th scope="row">93</th>
+                </tr>
+                <tr>
+                  <th scope="row">Important Monarchs of india</th>
+                  <th scope="row">112</th>
+                </tr>
+                <tr>
+                  <th scope="row">Important Monarchs of india</th>
+                  <th scope="row">162</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal11" role="dialog">
+    <div class="modal-dialog resource-dialog">
+      <div class="modal-content resource-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Slideshows</h4>
+        </div>
+        <div class="resource-modal-content">
+          Click on the page number to view the slideshow resource.
+          <div class="resource-table">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Chapter Name</th>
+                  <th scope="col">Topic Name</th>
+                  <th scope="col">Page No</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Selfish Giant</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">43</th>
+                </tr>
+                <tr>
+                  <th scope="row">Mr Nobody</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">93</th>
+                </tr>
+                <tr>
+                  <th scope="row">Bills</th>
+                  <th scope="row">Game</th>
+                  <th scope="row">12</th>
+                </tr>
+                <tr>
+                  <th scope="row">Decimals</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">2</th>
+                </tr>
+                <tr>
+                  <th scope="row">Times</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">12</th>
+                </tr>
+                <tr>
+                  <th scope="row">Percentage and Average</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">62</th>
+                </tr>
+                <tr>
+                  <th scope="row">It couldn't be done</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">162</th>
+                </tr>
+                <tr>
+                  <th scope="row">The Art of Packing</th>
+                  <th scope="row">Video</th>
+                  <th scope="row">152</th>
+                </tr>
+                <tr>
+                  <th scope="row">Times</th>
+                  <th scope="row">Video</th>
+                  <th scope="row">12</th>
+                </tr>
+                <tr>
+                  <th scope="row">Percentage and Average</th>
+                  <th scope="row">Activity</th>
+                  <th scope="row">62</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<script type="text/javascript">
+  var clicked;
+  var toHighLight = ['Notes', 'Single Page View', 'Double Page View', 'Thumbnail View'];
+  $('ul[class*=-menu] > li >a').click(function () {
+    var tooltip = $(this).attr('tooltip');
+    if ($.inArray(tooltip, toHighLight) > -1) {
+      var activeClass = $(this).parent().attr('class');
+      if (activeClass == undefined || activeClass == "") {
+        clicked = false;
+      } else if ('active' == activeClass) {
+        clicked = true;
+      }
+      if (!clicked) {
+        $(this).parent().css('background-color', '#4caf50');
+        $(this).parent().addClass('active');
+        clicked = false;
+      } else {
+        $(this).parent().css('background-color', '#9ac31c');
+        $(this).parent().removeClass('active');
+        clicked = true;
+      }
+    }
+  });
+
+  window.SetVolume = function (val) {
+    var player = document.getElementById('flipsound');
+    player.volume = val / 100;
+    if (player.volume <= 0) {
+      $("#vol_icon").removeAttr("src");
+      $("#vol_icon").attr("src", "/mute@1x.png");
+    } else {
+      $("#vol_icon").attr("src", "/ic_17.png");
+    }
+  }
+
+  $("[data-toggle='popover']").popover({
+    html: true,
+    placement: 'top',
+    content: function () {
+      return $('#popover-content').html();
+    }
+  });
+  var pageCount = 128;
+  var openNotes = false;
+  var currentPage = 1;
+
+  // function makeEditableAndHighlight(colour) {
+  //   var range, sel = window.getSelection();
+  //   if (sel.rangeCount && sel.getRangeAt) {
+  //     range = sel.getRangeAt(0);
+  //   }
+  //   document.designMode = "on";
+  //   if (range) {
+  //     sel.removeAllRanges();
+  //     sel.addRange(range);
+  //   }
+  //   // Use HiliteColor since some browsers apply BackColor to the whole block
+  //   if (!document.execCommand("HiliteColor", false, colour)) {
+  //     document.execCommand("BackColor", false, colour);
+  //   }
+  //   document.designMode = "off";
+  // }
+
+  // function highlightSelection(colour) {
+  //   var range, sel;
+  //   if (window.getSelection) {
+  //     // IE9 and non-IE
+  //     try {
+  //       if (!document.execCommand("BackColor", false, colour)) {
+  //         makeEditableAndHighlight(colour);
+  //       }
+  //     } catch (ex) {
+  //       makeEditableAndHighlight(colour)
+  //     }
+  //   } else if (document.selection && document.selection.createRange) {
+  //     // IE <= 8 case
+  //     range = document.selection.createRange();
+  //     range.execCommand("BackColor", false, colour);
+  //   }
+  // }
+
+
+  function handleAnnotations() {
+    if (!openNotes) {
+      openNotes = true;
+      loadSticky(currentPage);
+    } else {
+      openNotes = false;
+      removeSticky();
+    }
+  }
+  // var current_annotationId=0;
+  //   function findMaxAnnotateId(){
+  //     $.get("/findMaxId", function(data){current_annotationId=data;});   
+  //   }
+
+  function loadAnnotations(currentPage) {
+    var params = $(location).attr('href').split("/");
+    var pageFromHref = params[params.length - 1];
+
+    setTimeout(() => {
+      $('#content').annotator('destroy');
+
+      $('#content').annotator();
+      // +++ Store +++
+      $("#content").annotator('addPlugin', 'Store', {
+        // This is the API endpoint. If the server supports Cross Origin Resource
+        // Sharing (CORS) a full URL can be used here. Defaults to /store. The
+        // trailing slash should be omitted.
+        prefix: 'http://localhost:3000',
+        // Custom meta data that will be attached to every annotation that is sent
+        // to the server. This will override previous values. E.g. attach the uri of the
+        // current page to all annotations to allow search.
+        annotationData: {
+          'uri': 'http://localhost:3000/index#page/' + currentPage,
+          'id': '',
+          'pages': currentPageNo
+        },
+        // An object literal containing query string parameters to query the store.
+        // If loadFromSearch is set, then we load the first batch of annotations
+        // from the ‘search’ URL as set in options.urls instead of the registry path
+        // ‘prefix/read’. Defaults to false.
+        loadFromSearch: {
+          'limit': 0,
+          'all_fields': 1,
+          'page': currentPage
+        },
+        // The server URLs for each available action (excluding prefix). These URLs
+        // can point anywhere but must respond to the appropriate HTTP method. The
+        // :id token can be used anywhere in the URL and will be replaced with the
+        // annotation id.
+        // Methods for actions are as follows:
+        // create:  POST
+        // update:  PUT
+        // destroy: DELETE
+        // search:  GET
+        urls: {
+          // These are the default URLs.
+          create: '/annotations',
+          update: '/annotations/:id',
+          destroy: '/annotations/:id',
+          search: '/search'
+        },
+        // If true will display the "anyone can view this annotation" checkbox.
+        showViewPermissionsCheckbox: true,
+        // If true will display the "anyone can edit this annotation" checkbox.
+        showEditPermissionsCheckbox: true
+      });
+
+    }, 1000);
+
+
+  }
+
+  var images = [];
+
+  function saveImg(image) {
+    var _this = this;
+    var page = currentPageNo + "";
+    var pageNo = page.replace(",", "-");
+    $.ajax({
+      type: 'POST',
+      url: '/saveImage',
+      data: { image: image, pageNo: pageNo },
+      success: function (resp) {
+        _this._displayStatus('<strong>Image saved successfully</strong>');
+        images = [];
+        $('#wPaint-img').removeAttr("src");
+        resp.forEach(element => {
+          images.push(element);
+        });
+        $('#wPaint-img').attr('src', images);
+      }
+    });
+  }
+
+  function loadImgBg() {
+
+    this._showFileModal('bg', images);
+  }
+
+  function loadImgFg() {
+    var page = currentPageNo + "";
+    var pageNo = page.replace(",", "-");
+    this.setImage("paint-image" + pageNo + ".png", null, null, true);
+    //this._showFileModal('fg', images);
+  }
+
+  function loadPrintFiles() {
+    var _this = this;
+    $.ajax({
+      url: '/getPaintFiles',
+      type: 'GET',
+      success: function (data) {
+        //_this.setImage("paint-image2.png", null, null, true);
+        images = [];
+        data.forEach(element => {
+          images.push(element);
+        });
+        $('#wPaint-img').attr('src', images);
+      }
+    });
+  }
+
+  $(document).ready(function () {
+
+    $("#loader").show();
+    $('#content').annotator();
+    loadPrintFiles();
+
+    $("#paint").on("click", function (e) {
+      if ($("#wPaint").is(":visible")) {
+        $("#wPaint").hide();
+      } else {
+        $("#wpaint").attr("style", "position:absolute; z-index: 9999; top:5%; left:37%;width:800px; height:400px; margin:70px auto 20px auto;");
+        $("#wPaint").show();
+        $('#wPaint').wPaint({
+          menuOffsetLeft: -100,
+          menuOffsetTop: -40,
+          saveImg: saveImg,
+          loadImgBg: loadImgBg,
+          loadImgFg: loadImgFg
+        });
+      }
+      e.preventDefault();
+
+    });
+
+    // init wPaint
+
+
+    $("#maxWindow").on("click", function () {
+      $(document).toggleFullScreen();
+    });
+
+    $('.upload-btn').on('click', function () {
+      $("#uploadMessage").text('');
+      $('#upload-input').click();
+    });
+
+    $('#upload-input').on('change', function () {
+      $("#uploadMessage").text('');
+      var files = $(this).get(0).files;
+
+      if (files.length > 0) {
+        // One or more files selected, process the file upload
+
+        // create a FormData object which will be sent as the data payload in the
+        // AJAX request
+        var formData = new FormData();
+
+        // loop through all the selected files
+        for (var i = 0; i < files.length; i++) {
+          var file = files[i];
+
+          // add the files to formData object for the data payload
+          formData.append('upload', file, file.name);
+        }
+
+      }
+
+      $.ajax({
+        url: '/upload',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (data) {
+          $("#uploadMessage").text('Annotation file has been uploaded !!');
+          console.log('upload successful!');
+        }
+      });
+
+    });
+
+
+
+    $("#vol_icon").attr("src", "/ic_17.png");
+
+    document.getElementById('playbackvoice').addEventListener('ended', function () {
+      $("#pauseDiv").attr("style", "display:none");
+      $("#playDiv").attr("style", "display:inline-block");
+    }, false);
+
+    $("#playicn").on("click", function () {
+      $("#playbackvoice")[0].play();
+      $("#playDiv").attr("style", "display:none");
+      $("#pauseDiv").attr("style", "display:inline-block");
+    });
+
+    $("#pauseicn").on("click", function () {
+      $("#pauseDiv").attr("style", "display:none");
+      $("#playDiv").attr("style", "display:inline-block");
+      $("#playbackvoice")[0].pause();
+      $("#playbackvoice")[0].currentTime = 0;
+    });
+
+    $("#print").on("click", function () {
+      if ($("#startPage").val() <= $("#endPage").val()) {
+        axios.post('/preparePdf', { startPage: $("#startPage").val(), endPage: $("#endPage").val() })
+          .then(function (response) {
+            closepopup('myModal2');
+            printJS({ printable: '/print.pdf', type: 'pdf' })
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else {
+        alert("Start Page should be less than equal to end page.");
+      }
+    });
+
+    $('.trigger').click(function () {
+      $('.modal-wrapper').toggleClass('open');
+      $('.page-wrapper').toggleClass('blur');
+      return false;
+    });
+
+    $("#openNotes").on("click", function () {
+      handleAnnotations();
+    });
+
+
+    // var slider = $('.bxslider').bxSlider({
+    //   /* startSlide: 1,*/
+    //   infiniteLoop: false,
+    //   minSlides: 3,
+    //   speed: 2000,
+    //   pager: false,
+    //   responsive: true,
+    //   slideWidth: 250,
+    //   slideMargin: 3,
+    //   mode: 'vertical',
+    //   //  preloadImages:"visible"
+    // });
+
+    // var slider =$("#my-thumbs-list").mThumbnailScroller({
+    //           axis:"x" //change to "y" for vertical scroller
+    //         });
+
+    $('.bxslider1').on('click', 'li', function () {
+      loadSelectedPage(this.dataset.slide);
+    });
+
+    $("#zoomIn").on("click", function () {
+      $('.magazine-viewport').zoom('zoomIn');
+    });
+
+    $("#zoomOut").on("click", function () {
+      $('.magazine-viewport').zoom('zoomOut');
+    });
+
+    $("#thumbnail_menu").on("click", function () {
+      $("#loader").show();
+      $('.bxslider1').html("");
+      for (var page = 1; page <= pageCount; page++) {
+        
+        var img = $('<img />');
+        var li = $('<li />');
+        var span = $('</br><center><span style="color:white">').append("Page " + page).append("</span></center>");
+        var a = $('<a href="javascript:;">');
+        img.attr('src', imageName + page + '.jpg');
+        img.addClass('mTSThumb');
+        a.append(img);
+        li.addClass('mTSThumbContainer');
+        li.attr("data-slide", page);
+        li.append(a);
+        li.append(span);
+        $('.bxslider1').append(li);
+      }
+      $("#thumbnails").mThumbnailScroller({
+        axis: "y",
+        type: "click-thumb",
+        theme: "buttons-out"
+      });
+      $("#thumbnails").addClass("content light");
+
+
+      if (!$("#thumbnails").is(":visible")) {
+        $("#thumbnails").attr("style", "display:block; position:absolute; z-index: 9999;padding-left:10px;padding-bottom:10px;padding-top:10px");
+        //slider.reloadSlider();
+      } else {
+        $("#thumbnails").attr("style", "display:none");
+      }
+      $("#loader").hide();
+    });
+
+    $("#pageView").on("click", function () {
+      handleAnnotations();
+      removeSticky();
+      $('.magazine').turn('destroy');
+      $(window).unbind('keydown');
+      if (!singlePageView) {
+        singlePageView = true;
+        display = "single";
+        $("#pageView").attr("tooltip", "Double Page View");
+        $("#pageViewIcn").attr("src", "/ic_8,1.png");
+        width = 925 / 2;
+      } else {
+        singlePageView = false;
+        width = 925;
+        display = "double";
+        $("#pageView").attr("tooltip", "Single Page View");
+        $("#pageViewIcn").attr("src", "/ic_8.png");
+      }
+      openNotes = false;
+      loadApp();
+    });
+
+    $("#search-btn").on("click", function () {
+
+      $("#loader").show();
+      $('html').unhighlight();
+      var searchText = $("#searchTxt").val();
+      $("#searchResults").html("");
+      $.get(`/search/${searchText}`, function (data) {
+        if (data.length > 0) {
+          $.each(data.split(","), function (index, fileName) {
+            var pageNo = fileName.trim().split(".")[0].substr(4);
+            var div = $("#searchResults");
+            var li = $("<li />");
+            var a = $('<a>');
+            a.attr("onclick", "loadSelectedPage(" + pageNo + ")");
+            a.append(fileName.trim().split(".")[0]).append("</a>");
+            li.append(a);
+            div.append(li);
+          });
+        } else {
+          $("#searchResults").html("<i>Text '<b>" + searchText + "</b>' not found in the document</i>");
+        }
+        $("#booksection div").highlight($("#searchTxt").val(), { caseSensitive: false });
+        $('div.modal-backdrop').remove();
+        $("#search-result-cd").attr("style", "display:block");
+        $("#searchResults").show();
+        $("#loader").hide();
+      });
+    });
+
+    $('.zoom-icon').bind('mouseover', function () {
+
+      if ($(this).hasClass('zoom-icon-in'))
+        $(this).addClass('zoom-icon-in-hover');
+
+      if ($(this).hasClass('zoom-icon-out'))
+        $(this).addClass('zoom-icon-out-hover');
+
+    }).bind('mouseout', function () {
+
+      if ($(this).hasClass('zoom-icon-in'))
+        $(this).removeClass('zoom-icon-in-hover');
+
+      if ($(this).hasClass('zoom-icon-out'))
+        $(this).removeClass('zoom-icon-out-hover');
+
+    }).bind('click', function () {
+
+      if ($(this).hasClass('zoom-icon-in'))
+        $('.magazine-viewport').zoom('zoomIn');
+      else if ($(this).hasClass('zoom-icon-out'))
+        $('.magazine-viewport').zoom('zoomOut');
+
+    });
+
+    //$('#canvas').hide();
+
+
+    // Load the HTML4 version if there's not CSS transform
+
+    yepnope({
+      test: Modernizr.csstransforms,
+      yep: ['js/turn.js'],
+      nope: ['js/turn.html4.min.js', 'css/jquery.ui.html4.css'],
+      both: ['js/zoom.js', 'js/magazine.js'],
+      complete: loadApp
+    });
+  });
+
+  function closepopup(element) {
+    $('#' + element).modal('toggle');
+  }
+
+  function closeSearch(element) {
+    $('#' + element).attr("style", "display:none");
+  }
+
+</script>
+<script>
+  $(document).ready(function () {
+    $("span#close").click(function () {
+      $("#popover-content").hide();
+    });
+  });
+
+</script>
+
+
+</html>

@@ -1,0 +1,42 @@
+{
+  "name": "oxford-study-app",
+  "version": "1.0.0",
+  "description": "Oxford Study Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . --enable-logging",
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./release-builds/osx",
+    "clean:win": "rm -rf ./release-builds/win",
+    "pack": "npm run clean && npm run pack:osx && npm run pack:win",
+    "pack:osx": "npm run clean:osx && electron-packager . --overwrite --out=release-builds/osx --platform=darwin --arch=x64 --icon=assets/icons/pdf.ico --ignore=dist --ignore=assets --ignore=bookmark-list.json --ignore=note-list.json --ignore=README.md --ignore=.gitignore",
+    "pack:win": "npm run clean:win && electron-packager . --overwrite oxford-study-app --platform=win32 --icon=assets/icons/pdf.ico --prune=true --out=release-builds/win --ignore=assets --ignore=../../../node_modules --ignore=release-builds --ignore=builder.json --ignore=bower.json --ignore=README.md --ignore=.gitignore --version-string.ProductName=\"Oxford tutorial Application\"",
+    "pack:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=assets/icons/pdf.ico --prune=true --out=release-builds"
+  },
+  "repository": "",
+  "keywords": [
+    "Oxford",
+    "quick",
+    "start",
+    "tutorial"
+  ],
+  "author": "Senthil Kumar",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "concat-files": "^0.1.1",
+    "concatenate-files": "^0.1.1",
+    "cors": "^2.8.4",
+    "easy-pdf-merge": "^0.1.3",
+    "electron": "^1.8.1",
+    "electron-packager": "^9.1.0",
+    "electron-pdf-window": "^1.0.12",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "fs": "0.0.1-security",
+    "highlight": "^0.2.4",
+    "http": "0.0.0",
+    "lodash": "^4.17.4",
+    "log4js": "^2.4.1"
+  }
+}

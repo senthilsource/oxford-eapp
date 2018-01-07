@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Oxford Education</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.min.1.7.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $("#containerCnt").attr("style", "display:none");
+        $("#videoPlayer").attr("style", "display:block");
+        $('video').on('ended', function() {
+          $(this).fadeOut('2000', function() {
+            $(this).css('opacity', 1);
+          });
+          $("#containerCnt").attr("style", "display:block");
+          $("#videoPlayer").attr("style", "display:none");
+        });
+        $('video').on('click', function() {
+          this.pause();
+          $("#containerCnt").attr("style", "display:block");
+          $("#videoPlayer").attr("style", "display:none");
+        });
+      });
+    </script>
+
+  <!-- Le styles -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+      background-color: #041328;
+    }
+
+    .terms {
+      padding: 60px;
+      font-size: 18px;
+      font-weight: 200;
+      line-height: 30px;
+      color: inherit;
+      background-color: #000B17;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+    }
+
+    .termslogo {
+      padding: 30px;
+      font-size: 18px;
+      font-weight: 200;
+      line-height: 30px;
+      color: inherit;
+      background-color: #000B17;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+    }
+
+    .footer {
+      background-color: #001C55;
+      text-align: right;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    /*.oup{
+    box-shadow: 0px 0px 15px 5px rgba(255,255,255,0.6)
+}*/
+
+    .hr {
+      margin-top: 50px;
+    }
+
+    .line {
+      display: block;
+      border: none;
+      color: white;
+      height: 2px;
+      background: black;
+      background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 450, from(#fff), to(#00000004));
+    }
+
+    h5 {
+      color: #fff;
+    }
+
+    .vert {
+      margin: 2px 0 24px;
+      ;
+    }
+
+    .vertical {
+      margin: 36px 0;
+    }
+
+    .alignment {
+      margin: 0 auto;
+      width: 60%;
+    }
+
+    .align {
+      margin: 28px auto 13px;
+      width: 60%;
+      line-height: 1.5;
+    }
+
+    .fontweight {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .space p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #fff;
+    }
+
+    .require {
+      padding: 0px 24px;
+    }
+
+    h6 {
+      line-height: 1.5;
+      color: #fff;
+    }
+  </style>
+
+</head>
+
+<body>
+  <center>
+    <div id="videoPlayer">
+      <video  autoplay="autoplay" width="auto" height="auto" preload="auto">
+      <source src="/ebook_final-1.mp4" type="video/mp4"/>
+    </video>
+    </div>
+  </center>
+
+  <div id="containerCnt" class="container-fluid">
+    <div class="container terms">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class=" pull-right"> <a href="/index"><img src="02.png" class="img-responsive oup" alt="Responsive image" width="250" height="150"></a></p>
+        </div>
+        <div class="col-sm-6">
+          <a href=""> <img src="01.png" class="img-responsive oup" alt="Responsive image" width="250" height="150"></a>
+        </div>
+      </div>
+      <div class="hr">
+        <span class="line"></span>
+      </div>
+    </div>
+
+    <div class="container termslogo">
+      <div class="row alignment">
+        <div class="col-sm-6">
+          <div class="col-sm-12 vert">
+            <p class=" pull-right"><img src="Circle.png" class="img-responsive " alt="Responsive image" width="90" height="90"></p>
+          </div>
+          <div class="col-sm-12 vertical">
+            <p class=" pull-right"><img src="oupwhite.png" class="img-responsive " alt="Responsive image" width="150" height="90"></p>
+          </div>
+          <div class="col-sm-12 text-right">
+            <font color="#fff">
+              <p>www.oup.co.in</p>
+            </font>
+          </div>
+
+        </div>
+
+        <div class="col-sm-6 space">
+          <h5>&copy; Oxford University Press 2016</h5>
+          <p>All rights reserved. The content of this digital material is copyright protected and must not be reproduced, stored in a retrievel system, modified, adapted, distributed, transmitted, transferred or published in any form or by any means without
+            the prior permission in writing of Oxford University Press. Enquiries concerning rights of reproduction should be sent to the Rights Department, Oxford University Press, at he address given below.</p>&nbsp;
+          <p class="fontweight">Oxford University Press India</p>
+          <h6>1st Floor, YMCA library Building <br> 1 Jai Singh Road, New Delhi 110 001 </h6>
+        </div>
+      </div>
+      <div class="hr">
+        <span class="line"></span>
+      </div>
+      <div>
+        <h5 class="align">Before running Oxford Educate, ensure that following programs are installed on your system. Click on the buttons to download. Connection to the Internet is required.</h5>
+        <div class="col-sm-4 text-right">
+
+          <h5>OS - Windows7</h5>
+          <h5 class="require">RAM - 2GB </h5>
+
+        </div>
+        <div class="col-sm-4">
+          <center>
+            <h5> <a href="https://www.google.com/chrome/browser/desktop/index.html"><font color="#fff"> Google Chrome </font></h5></a>
+          </center>
+        </div>
+        <div class="col-sm-4">
+          <h5><h5> <a href="https://www.videolan.org/vlc/index.html"><font color="#fff">VLC Media Player</font></h5></a>
+        </div>
+      </div>
+    </div>
+    <!--   <div class="container-fluid navbar-fixed-bottom">
+            <div class="container footer">&copy; Oxford University Press 2016</div>
+        </div> -->
+</body>
+
+</html>
