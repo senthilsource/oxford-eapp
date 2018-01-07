@@ -1,6 +1,6 @@
 //var axios = require("axios");
+var url = "https://dry-falls-15164.herokuapp.com";
 
-﻿
 var loadSticky = "";
 var removeSticky = "";
 var hideSticky = "";
@@ -111,7 +111,7 @@ jQuery(document).ready(function($) {
       console.log(note);
       note.currentPageNo = currentPageNo;
 
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -122,7 +122,7 @@ jQuery(document).ready(function($) {
     onNoteBoxHeaderUpdate: function(note) {
       console.log("onNoteBoxHeaderUpdate");
       note.currentPageNo = currentPageNo;
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -134,7 +134,7 @@ jQuery(document).ready(function($) {
       console.log("onNoteBoxTextUpdate" + currentPageNo);
       note.currentPageNo = currentPageNo;
       console.log(note);
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
       console.log("onNoteBoxTextUpdate" + currentPageNo);
       note.currentPageNo = currentPageNo;
       console.log(note);
-      axios.delete(`/deleteNote/${note.id}`)
+      axios.delete(url+`/deleteNote/${note.id}`)
         .then(function(response) {
           console.log(response);
         })
@@ -158,7 +158,7 @@ jQuery(document).ready(function($) {
     onNoteBoxResizeStop: function(note) {
       console.log("onNoteBoxResizeStop");
       note.currentPageNo = currentPageNo;
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -169,7 +169,7 @@ jQuery(document).ready(function($) {
     onNoteBoxDraggingStop: function(note) {
       console.log("onNoteBoxDraggingStop");
       note.currentPageNo = currentPageNo;
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -180,7 +180,7 @@ jQuery(document).ready(function($) {
     onThemeSelectionChange: function(note) {
       console.log("onThemeSelectionChange");
       note.currentPageNo = currentPageNo;
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -191,7 +191,7 @@ jQuery(document).ready(function($) {
     onMovingNoteBoxOnTop: function(note) {
       console.log("onMovingNoteBoxOnTop");
       note.currentPageNo = currentPageNo;
-      axios.post('/createNote', getBackEndStickyObject(note))
+      axios.post(url+'/createNote', getBackEndStickyObject(note))
         .then(function(response) {
           console.log(response);
         })
@@ -209,7 +209,7 @@ jQuery(document).ready(function($) {
   // Pass Page no as arguments and get only those stickys from json file and display it
   loadSticky = function(page) {
     $.ajax({
-      url: `/getNotes/${page}`,
+      url: url+`/getNotes/${page}`,
       method: "GET",
       dataType: "json",
     }).done(function(data) {

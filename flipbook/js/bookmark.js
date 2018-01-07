@@ -1,6 +1,8 @@
 
+var hostname = "https://dry-falls-15164.herokuapp.com";
+    
 function addValue(){
-  axios.post('/createBookMark', {value:currentPage, text:$("input[name=txtValue]").val()})
+  axios.post(hostname+'/createBookMark', {value:currentPage, text:$("input[name=txtValue]").val()})
     .then(function(response) {
       console.log(response);
       loadBookMark();
@@ -17,7 +19,7 @@ function setUpBookMark(pageNo, text){
 }
 
 function loadBookMark(){
-  axios.get('/fetchBookMark')
+  axios.get(hostname+'/fetchBookMark')
     .then(function(response) {
       console.log(response);
       $('select[name=lstValue]').html("");
@@ -34,7 +36,7 @@ function loadBookMark(){
 }
 
 function removeBookMark(text){
-  axios.delete('/removeBookMark/'+text)
+  axios.delete(hostname+'/removeBookMark/'+text)
     .then(function(response) {
       console.log(response);
       $('select[name=lstValue]').html("");
