@@ -1,7 +1,7 @@
 /*
  * Magazine sample
 */
-var url = "http://localhost:3000";
+var url = "https://dry-falls-15164.herokuapp.com";
 function addPage(page, book) {
 	var id, pages = book.turn('pages');
 
